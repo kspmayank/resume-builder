@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715120936) do
+ActiveRecord::Schema.define(version: 20170715155221) do
 
   create_table "user_resumes", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(version: 20170715120936) do
     t.text     "password_digest"
     t.string   "mobile"
     t.boolean  "verified"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

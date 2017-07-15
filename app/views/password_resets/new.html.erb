@@ -1,0 +1,9 @@
+<div class="container" style="text-align:center; margin-top: 150px;">
+<%= form_tag password_resets_path, :method => :post do %>
+  <!-- <div class="field"> -->
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  <!-- </div> -->
+  <%= submit_tag "Reset Password", :class => "btn btn-primary" %>
+<% end %>
+</div>

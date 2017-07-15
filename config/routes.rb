@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
   resources :user_resumes
   get 'session/new'
 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   post '/user_resumes_ajax' => "user_resumes#ajaxhandle"
   get '/resettemplate' => "user_resumes#resettemplate"
 
+  resources :password_resets
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
