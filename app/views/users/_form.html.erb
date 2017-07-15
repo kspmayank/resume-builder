@@ -67,19 +67,23 @@
                     </div>
                   <% end %>
                   <div class="form-group">
-                      <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Enter Email' %>
+                      <%= f.text_field :email, class: 'form-control', placeholder: 'Enter Email', onfocusout: 'validateForm()' %>
+                      <p id="error-email" style="color: red;"></p>
                   </div>
                   <div class="form-group">
-                      <%= f.password_field :password, class: 'form-control', placeholder: 'Enter Password' %>
+                      <%= f.password_field :password, class: 'form-control', placeholder: 'Enter Password', onfocusout: "checkPwd()" %>
+                      <p id="error-minp" style="color: red;"></p>
                   </div>
                   <div class="form-group">
                     <!-- <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password"> -->
-                      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Enter Password' %>
+                      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Enter Password', onfocusout: "confirmPass()" %>
+                      <p id="error-password" style="color: red;"></p>
                   </div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                          <%= f.submit 'Register now', :class => 'form-control btn btn-register' %>                       
+                          <%= f.submit 'Register now', :class => 'form-control btn btn-register'  %>
+                          <p>Already a member? <a href="/login" class=''>Login</a> here</p>                                                 
                       </div>
                     </div>
                   </div>
@@ -92,7 +96,69 @@
     </div>
   </div>
 
+  <style type="text/css">
+    .btn-register{
+      display: inline-block;
+      width: 200px;
+    }
+  </style>
+
   <script type="text/javascript">
+    function validateForm() {
+        var x = document.getElementById('user_email').value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            $("#error-email").html("Not a valid e-mail address");
+            return false;
+            // return false;
+        }
+        else{
+          $("#error-email").html("");
+          return true;
+        }
+    }
+
+    function confirmPass(){
+      var x = document.getElementById('user_password').value;
+      var y = document.getElementById('user_password_confirmation').value; 
+      if(x!=y){
+            $("#error-password").html("Password Mismatch");        
+            return false;
+      }     
+      else{
+        $("#error-password").html("");        
+        return true;
+      }
+    }
+
+    function checkPwd() {
+        var str = document.getElementById('user_password').value;
+        if (str.length < 8) {
+            $("#error-minp").html("Min 8 characters required");
+            return false;
+        } else{
+            $("#error-minp").html("");
+          return true;
+        }
+    }
+
+    $('#register-form').submit(function() {
+        // DO STUFF...
+        if(validateForm() && confirmPass() && checkPwd()){
+          console.log("true");
+          return true;
+        }else{
+          console.log("false");
+          return false;
+        }
+        // return true; // return false to cancel form action
+    });
+
+    function checkData(){
+      
+    }
+
     $(function() {
 
     $('#login-form-link').click(function(e) {

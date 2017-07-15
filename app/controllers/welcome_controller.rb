@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
   end
 
   def template1
-  	render :layout => "template1"
+    if session[:user_id]
+	  	render :layout => "template1"
+    else  	
+      redirect_to '/'
+    end	
   end
 end

@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if session[:user_id]
+      redirect_to '/'
+    else
+      @user = User.new
+    end
   end
 
   # GET /users/1/edit
@@ -24,12 +28,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-    # @user = User.new(params[:user])
-    @user.password = params["user"]["password"]
-    @user.save!
-    session[:user_id] = @user.id
-    redirect_to '/login'
+    user = User.find_by_email(params["user"]["email"])
+    if user
+      redirect_to '/login', :notice => "Email already exists, Login!"
+    else
+      @user = User.new(user_params)
+      # @user = User.new(params[:user])
+      @user.password = params["user"]["password"]
+      @user.save!
+      session[:user_id] = @user.id
+      redirect_to '/login'
+    end
     # if @user.save
     #   session[:user_id] = @user.id
     #   redirect_to '/'

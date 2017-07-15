@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/templates' => "welcome#templates"
   get '/template1' => "welcome#template1"
   post '/user_resumes_ajax' => "user_resumes#ajaxhandle"
+  get '/resettemplate' => "user_resumes#resettemplate"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

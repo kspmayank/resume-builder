@@ -34,6 +34,13 @@ class UserResumesController < ApplicationController
     end
   end
 
+  def resettemplate
+    urd = UserResume.where(["user_id = ? and template = ?", "2" , "template1"]).first.content 
+    urp = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first 
+    urp.content = urd 
+    urp.save!
+  end
+
   # POST /user_resumes
   # POST /user_resumes.json
   def create

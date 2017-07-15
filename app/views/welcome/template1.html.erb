@@ -15,7 +15,7 @@
 	<% if urt %>
 		<%= urt.content.html_safe %>
 	<% else %>
-		<%= UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first.content.html_safe %>
+		<%= UserResume.where(["user_id = ? and template = ?", "2" , "template1"]).first.content.html_safe %>
 	<% end %>
 </div>
 
@@ -212,7 +212,20 @@
 			defaultdata : function(){
 				var ans = confirm("Are you sure you want to RESET this template? All Data will be lost.");
 				if (ans==true) {
-					$(".resume").html(<%= UserResume.where(["user_id = ? and template = ?", 2 , "template1"]).first.content %>);
+					$.ajax({
+					   url: '/resettemplate',
+					   data: {
+					   },
+					   error: function() {
+					      $('#info').html('<p>Cannot reset</p>');
+					      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
+					   },
+					   dataType: 'text',
+					   success: function(data) {
+					   	  window.location.reload(true);    	  
+					   },
+					   type: 'GET'
+					});
 				}
 			} 
 		}
