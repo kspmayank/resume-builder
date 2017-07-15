@@ -1,0 +1,67 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	font-family: 'Roboto';
+}
+
+nav{
+	background: #dd2c00;
+	width: 100%;
+	height: 10px;
+}
+
+h1{
+	margin: 0;
+	padding: 10px 0 10px 0;
+	color: #dd2c00;
+	display: inline-block;
+	/*position: relative;
+	top: 100px;*/
+	margin-top: 100px;
+	font-size: 72px;
+}
+
+.heading-logo{
+	padding: 25px;
+	border: 1px solid #dd2c00;
+	border-radius: 15%;
+	color: #fff;
+	background: #dd2c00;
+	margin: 0 20px 0 20px;
+}
+
+.container{
+	width: 85%;
+	margin: auto;
+
+}
+
+.first-line{
+	margin-top: 50px;;
+	font-size: 36px;
+}
+
+.btns{
+	margin: 25px;
+}
+
+.btn{
+	background: #dd2c00;
+	color: #fff;
+	border-color: #dd2c00;
+}
+
+.btn:visited{
+	background: #dd2c00;
+	color: #fff;
+	border-color: #dd2c00;
+}
+
+.btn:hover{
+	background: #fff;
+	color: #dd2c00;
+	border-color: #dd2c00;
+}
+

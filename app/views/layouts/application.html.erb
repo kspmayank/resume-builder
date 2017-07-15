@@ -6,9 +6,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
   </head>
 
   <body>
+  <nav>
+	
+</nav>
+
+<p style="text-align:center; color: red;"><%=notice%></p>
     <%= yield %>
   </body>
 </html>

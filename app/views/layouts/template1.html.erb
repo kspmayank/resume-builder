@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume</title>
+    <%= csrf_meta_tags %>
+
+    <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="/assets/template1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://cdn.ckeditor.com/4.7.1/standard-all/ckeditor.js"></script>
+  	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<div class="container">
+	<p style="" class="no-print" id="info"></p>
+	<p id="counter-c">Autosaving in <span id="counter"></span>s</p>
+	<style type="text/css">
+		#info, #counter-c{
+			text-align:center; 
+			color: green; 
+			position: fixed;
+		    bottom: 10px;
+		    right: 10px;
+		}
+	</style>
+	<div class="resume">
+	<% urt = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first %>
+	<% if urt %>
+		<%= urt.content.html_safe %>
+	<% else %>
+		<%= UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first.content.html_safe %>
+	<% end %>
+</div>
+
+<div class="side-panel no-print">
+	<p>Welcome to online Resume Builder</p>
+	<ul>
+		<li>For best experience, use Desktop Chrome</li>
+		<li style="color: red;">Click on any element and you will be able to edit it.</li>
+		<li>Clicking on [X] will remove its respective element</li>
+		<!-- <li>Various sections have add buttons to add another element in its section</li> -->
+		<li>Keep the content length under the given space otherwise it might get trimmed in the pdf.</li>
+	</ul>
+	<p>To Print</p>
+	<ul>
+		<li>CLick <a href="javascript:void(0)" onclick="window.print()">here</a> or "ctrl + p"</li>
+		<li>In the "More Settings" section keep the following settings :
+			<ul>
+				<li>Layout : Portrait</li>
+				<li>Paper Size : A4</li>
+				<li>Margins : Default</li>
+				<li>Scale : 100</li>
+				<li><i class="fa fa-square-o" aria-hidden="true"></i> Headers&amp;Footers</li> 
+				<li><i class="fa fa-check-square-o" aria-hidden="true"></i> Background</li>
+			</ul>
+		</li>
+	</ul>
+	<p>To save as PDF</p>
+	<ul>
+		<li>Follow same steps as "Print"</li> 
+		<li>In the print window dialog box, change the destination to "Save as PDF"</li>		
+	</ul>	
+	<!-- <p>To save online</p> -->
+		<a href="javascript:void(0)" class="save" onclick="Content.savedata()">Save</a>		
+		<a href="javascript:void(0)" class="save" onclick="Content.defaultdata()">Reset Template</a>		
+	<!-- <div><a href=""></a></div> -->
+</div>
+
+<style type="text/css">
+	.save, .default{
+		border: 1px solid #999;
+		background: #666;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-decoration: none;
+		font-size: 12px;
+	}
+</style>
+
+<script type="text/javascript">
+	jQuery.fn.extend({
+	  animateCount : function (from, to, time) {
+	    var steps = 1,
+	        self = this,
+	        counter;
+
+	    if (from - to > 0) {
+	      steps = -1;
+	    };
+
+	    from -= steps;
+
+	    function step() {
+	      self.text(from += steps);
+
+	      if ((steps < 0 && to >= from) || (steps > 0 && from >= to)) {
+	        clearInterval(counter);
+	      };
+	    };
+
+	    counter = setInterval(step, time || 1000);
+	  }
+	});
+
+	var Content = (function(){
+		return{
+			selectimg : function(){
+				$(".edit-img").on("click", function(){
+					$('#imginp').trigger('click');
+					$("#imginp").change(function(){
+				        Content.imgchange(this);
+				    });
+				});							
+			},
+			imgchange : function(input){
+				if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+		            
+		            reader.onload = function (e) {
+		                $('#ppimg').attr('src', e.target.result);
+		            }
+		            
+		            reader.readAsDataURL(input.files[0]);
+		        }		    
+			},
+			ppshow : function(){
+				$("#profile-pic").show();
+				$(".add-pp").hide();
+			},
+			pphide : function(){
+				$("#profile-pic").hide();
+				$(".add-pp").show();
+
+			},
+			wxadd : function(){
+				$('.wx-content').append("<div class='wx'><h5><span class='remove-wx no-print'>[X]</span><span contenteditable='true'>Organisation Name | Your Position</span><span class='duration' contenteditable='true'>Duration</span></h5><p  contenteditable='true'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>");
+				Content.wxrem($(".remove-wx").last());
+			},
+			wxrem : function(ele){
+				ele.on("click",function(){
+					var ans = confirm("Are you sure you want to remove this work experience?");
+					if (ans==true) {
+						$(this).closest(".wx").remove();
+					}
+				});
+			},
+			skladd : function(str){
+				// console.log($(this));
+				if (str == 'pro') {
+					$(".pro-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><div class='fill-bar'><div class='fill'></div></div></div>");
+					Content.sklrem($(".pro .skill-box").last().find(".remove-skl"));
+				}
+				if (str == 'personal') {
+					$(".personal-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><div class='fill-bar'><div class='fill'></div></div></div>");
+					Content.sklrem($(".personal .skill-box").last().find(".remove-skl"));
+				}						
+			},
+			sklrem : function(ele){
+				ele.on("click",function(){
+					var ans = confirm("Are you sure you want to remove this Skill?");
+					if (ans==true) {
+						$(this).closest(".skill-box").remove();
+					}
+				});
+			},
+			poradd : function(){
+				$('.por-content').append("<div class='por'><p><span class='remove-por no-print'>[X]</span><span contenteditable='true'>Organisation Name | Your Position</span><span class='duration' contenteditable='true'>Duration</span></p></div>");
+				Content.porrem($(".remove-por").last());
+			},
+			porrem : function(ele){
+				ele.on("click",function(){
+					var ans = confirm("Are you sure you want to remove this POR?");
+					if (ans==true) {
+						$(this).closest(".por").remove();
+					}
+				});
+			},
+			webrem : function(){
+				$(".website-link").hide();
+				$(".remove-web").hide();
+				$(".contact-sec ul").append("<li class='add-wlink no-print' onclick='Content.webadd()'>Add Website Link</li>");
+			},
+			webadd : function(){
+				$(".website-link").show();
+				$(".remove-web").show();
+				$(".add-wlink").remove();
+			},
+			skillfill : function(){
+				$(".input-skill").on("change",function(){
+					var val = $(this).val()*2+"px";
+					$(this).prev().find(".fill").animate({width: val},300, function(){});
+				});
+			},
+			savedata : function(){
+				var resume = $(".resume").html();
+				$.ajax({
+				   url: '/user_resumes_ajax',
+				   data: {
+				      users_id: '<%=session[:user_id]%>',
+				      template: 'template1',
+				      content: resume
+				   },
+				   error: function() {
+				      $('#info').html('<p>AutoSave not working.</p>');
+				      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
+				   },
+				   dataType: 'text',
+				   success: function(data) {
+				   	  $("#counter-c").hide();
+				      $('#info').html("<p>Data Autosaved.</p>");
+				      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
+				   	  $("#counter-c").show();
+					  $("#counter").animateCount(200,1);   	  
+				   },
+				   type: 'POST'
+				});
+			},
+			autosave : function(){
+				$("#counter").animateCount(200,1);
+				window.setInterval(function() {
+			    	Content.savedata();
+			  	}, 200000);
+			},
+			defaultdata : function(){
+				var ans = confirm("Are you sure you want to RESET this template? All Data will be lost.");
+				if (ans==true) {
+					$(".resume").html(<%= UserResume.where(["user_id = ? and template = ?", 2 , "template1"]).first.content %>);
+				}
+			} 
+		}
+	})();
+	Content.autosave();
+	Content.selectimg();
+	Content.wxrem($(".remove-wx"));
+	Content.sklrem($(".remove-skl"));
+	Content.porrem($(".remove-por"));
+	Content.skillfill();			
+</script>
