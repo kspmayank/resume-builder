@@ -20,7 +20,7 @@
 </div>
 
 <div class="side-panel no-print">
-<p class="btn-logout" style="">Hello! <a href="/logout">Logout</a>? Go <a href="/">Home</a></p>
+<p class="btn-logout" style="font-size:12px;">Hello! <a href="/logout">Logout</a>? Go <a href="/">Home</a></p>
 	<p>Welcome to online Resume Builder</p>
 	<ul>
 		<li>For best experience, use Desktop Chrome</li>
@@ -205,6 +205,7 @@
 				});
 			},
 			autosave : function(){
+				$("#counter").animateCount(200,1);
 				window.setInterval(function() {
 				$("#counter").animateCount(200,1);
 			    	Content.savedata();
