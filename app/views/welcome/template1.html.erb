@@ -189,6 +189,10 @@
 				      template: 'template1',
 				      content: resume
 				   },
+				    beforeSend: function() {
+				        // setting a timeout
+				        $("#info").addClass('Saving');
+				    },
 				   error: function() {
 				      $('#info').html('<p>AutoSave not working.</p>');
 				      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
@@ -196,6 +200,7 @@
 				   dataType: 'text',
 				   success: function(data) {
 				   	  // $("#counter-c").hide();
+				      $('#info').show();
 				      $('#info').html("<p>Data Saved Online.</p>");
 				      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
 				   	  // $("#counter-c").show();

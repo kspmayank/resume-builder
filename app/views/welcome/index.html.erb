@@ -1,4 +1,11 @@
-
+<% if session[:user_id] %>
+<% else %>
+	<style type="text/css">
+	  .btn-logout{
+	    display: none;
+	  }
+	</style>
+<% end %>
 
 <div class="container" style="text-align:center;">
 	<h1>Resume<span class="heading-logo"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>Builder</h1><br/>
