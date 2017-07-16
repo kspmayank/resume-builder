@@ -10,8 +10,14 @@ class UserMailer < ApplicationMailer
 
   #   mail to: "to@example.org"
   # end
+  default from: "railscasts@example.com"
 	def password_reset(user)
 	  @user = user
 	  mail :to => user.email, :subject => "Password Reset"
+	end
+
+	def testmail
+		@user = User.find(session[:user_id])
+	  	mail :to => @user.username, :subject => "Test Mail"
 	end
 end
