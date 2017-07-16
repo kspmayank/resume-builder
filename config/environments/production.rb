@@ -60,13 +60,20 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
-    port: 2525,
-    domain: "railscasts.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "resumebuilderbymk@gmail.com",
-    password: "re1su2me3"
+    port: 465,
+    user_name: "mayankkashyap95@gmail.com",
+    password: "5991augu91"
   }
+
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 465,
+  #   domain: "railscasts.com",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "resumebuilderbymk@gmail.com",
+  #   password: "re1su2me3"
+  # }
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "resumebuilder.mayankkashyap.com"}

@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -35,12 +35,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
-    port: 587,
-    domain: "railscasts.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
+    port: 465,
     user_name: "resumebuilderbymk@gmail.com",
-    password: "re1su2e3"
+    password: "re1su2me3"
   }
 
   # Specify what domain to use for mailer URLs
