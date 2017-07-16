@@ -30,7 +30,21 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "railscasts.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "resumebuilderbymk@gmail.com",
+    password: "re1su2e3"
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

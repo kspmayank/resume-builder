@@ -4,12 +4,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
+    redirect_to '/'
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    redirect_to '/'
   end
 
   # GET /users/new
@@ -23,6 +25,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # unless session[:user_id]
+      redirect_to '/'
+    # end
   end
 
   # POST /users

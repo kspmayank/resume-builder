@@ -57,6 +57,20 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "resume_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "railscasts.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "resumebuilderbymk@gmail.com",
+    password: "re1su2me3"
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "resumebuilder.mayankkashyap.com"}
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
