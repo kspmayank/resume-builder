@@ -194,18 +194,18 @@
 				   },
 				   dataType: 'text',
 				   success: function(data) {
-				   	  $("#counter-c").hide();
-				      $('#info').html("<p>Data Autosaved.</p>");
+				   	  // $("#counter-c").hide();
+				      $('#info').html("<p>Data Saved Online.</p>");
 				      setTimeout(function () { $('#info').fadeOut('fast'); }, 1000);
-				   	  $("#counter-c").show();
-					  $("#counter").animateCount(200,1);   	  
+				   	  // $("#counter-c").show();
+					  // $("#counter").animateCount(200,1);   	  
 				   },
 				   type: 'POST'
 				});
 			},
 			autosave : function(){
-				$("#counter").animateCount(200,1);
 				window.setInterval(function() {
+				$("#counter").animateCount(200,1);
 			    	Content.savedata();
 			  	}, 200000);
 			},
