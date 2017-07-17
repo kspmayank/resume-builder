@@ -58,20 +58,31 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.mailgun_settings = {
-  #   api_key: 'api-key-e74f7c4904d4e23c38a334e4e940824b',
-  #   domain: 'resumebuilder.mayankkashyap.com',
-  # }
 
-  config.action_mailer.smtp_settings = {
+#  config.action_mailer.mailgun_settings = {
+ #   api_key: 'key-e74f7c4904d4e23c38a334e4e940824b',
+  #  domain: 'resumebuilder.mayankkashyap.com',
+ # }
+
+config.action_mailer.smtp_settings = {
     address: "smtp.mayankkashyap.com",
     port: 587,
     domain: "resumebuilder.mayankkashyap.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "resumebuilder@mayankkashyap.com",
-    password: "xo$Rz@V4"
+    password: "xo$Rz@V4",
+    openssl_verify_mode: 'none'
   }
+
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 465,
+  #   domain: "railscasts.com",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "resumebuilderbymk@gmail.com",
+  #   password: "re1su2me3"
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "resumebuilder.mayankkashyap.com"}
