@@ -57,12 +57,10 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "resume_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 465,
-    user_name: "mayankkashyap95@gmail.com",
-    password: "5991augu91"
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: 'api-key-e74f7c4904d4e23c38a334e4e940824b',
+    domain: 'resumebuilder.mayankkashyap.com',
   }
 
   # config.action_mailer.smtp_settings = {
