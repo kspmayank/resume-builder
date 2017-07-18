@@ -64,16 +64,15 @@ Rails.application.configure do
  # }
 
 config.action_mailer.smtp_settings = {
-    address: "smtp.mayankkashyap.com",
+    address: "smtp.buildcv.online",
     port: 587,
-    domain: "resumebuilder.mayankkashyap.com",
+    domain: "buildcv.online",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "resumebuilder@mayankkashyap.com",
-    password: "xo$Rz@V4",
+    user_name: "support@buildcv.online",
+    password: "r^HC@tF1",
     openssl_verify_mode: 'none'
   }
-
   # config.action_mailer.smtp_settings = {
   #   address: "smtp.gmail.com",
   #   port: 465,
@@ -85,7 +84,7 @@ config.action_mailer.smtp_settings = {
   # }
 
   # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = {host: "resumebuilder.mayankkashyap.com"}
+  config.action_mailer.default_url_options = {host: "buildcv.online"}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

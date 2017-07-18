@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
 
   #   mail to: "to@example.org"
   # end
-  default from: "resumebuilder@mayankkashyap.com"
+  default from: "support@buildcv.online"
 	def password_reset(user)
 	  @user = user
 	  mail :to => user.email, :subject => "Password Reset"
