@@ -58,6 +58,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
+
 #  config.action_mailer.mailgun_settings = {
  #   api_key: 'key-e74f7c4904d4e23c38a334e4e940824b',
   #  domain: 'resumebuilder.mayankkashyap.com',
@@ -81,7 +82,6 @@ config.action_mailer.smtp_settings = {
   #   enable_starttls_auto: true,
   #   user_name: "resumebuilderbymk@gmail.com",
   #   password: "re1su2me3"
-  # }
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "buildcv.online"}
