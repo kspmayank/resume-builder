@@ -203,7 +203,7 @@
 				   },
 				    beforeSend: function() {
 				        // setting a timeout
-				        $("#info").addClass('Saving');
+				        $("#info").html('<p>Saving...</p>');
 				    },
 				   error: function() {
 				      $('#info').html('<p>AutoSave not working.</p>');
