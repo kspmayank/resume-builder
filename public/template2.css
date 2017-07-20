@@ -482,7 +482,7 @@ input[type=range]:focus::-ms-fill-upper {
 /*Side Panel*/
 
 .side-panel{
-	zoom: 0.975;
+	zoom: 0.9;
 	position: fixed;
 	top: 10px;
 	right: 10px;
