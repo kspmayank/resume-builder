@@ -11,12 +11,13 @@
 		}
 	</style>
 	<div class="resume">
-	<% urt = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first %>
+	<% urt = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template3"]).first %>
 	<% if urt %>
 		<%= urt.content.html_safe %>
 	<% else %>
-		<%= UserResume.where(["user_id = ? and template = ?", "2" , "template1"]).first.content.html_safe %>
+		<%= UserResume.where(["user_id = ? and template = ?", "2" , "template3"]).first.content.html_safe %>
 	<% end %>
+
 </div>
 
 <div class="side-panel no-print">
@@ -186,7 +187,7 @@
 				   url: '/user_resumes_ajax',
 				   data: {
 				      users_id: '<%=session[:user_id]%>',
-				      template: 'template1',
+				      template: 'template3',
 				      content: resume
 				   },
 				    beforeSend: function() {

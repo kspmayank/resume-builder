@@ -11,12 +11,13 @@
 		}
 	</style>
 	<div class="resume">
-	<% urt = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template1"]).first %>
+	<% urt = UserResume.where(["user_id = ? and template = ?", session[:user_id] , "template2"]).first %>
 	<% if urt %>
 		<%= urt.content.html_safe %>
 	<% else %>
-		<%= UserResume.where(["user_id = ? and template = ?", "2" , "template1"]).first.content.html_safe %>
+		<%= UserResume.where(["user_id = ? and template = ?", "2" , "template2"]).first.content.html_safe %>
 	<% end %>
+
 </div>
 
 <div class="side-panel no-print">
@@ -133,14 +134,18 @@
 					}
 				});
 			},
+			sklset : function(){
+				// val sv = $(".skill-range").data("val");
+				// $(".skill-range").val(sv);
+			},
 			skladd : function(str){
 				// console.log($(this));
 				if (str == 'pro') {
-					$(".pro-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><div class='fill-bar'><div class='fill'></div></div></div>");
+					$(".pro-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><input class='skill-range' type='range' min='1' max='100' value='25' name=''></div>");
 					Content.sklrem($(".pro .skill-box").last().find(".remove-skl"));
 				}
 				if (str == 'personal') {
-					$(".personal-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><div class='fill-bar'><div class='fill'></div></div></div>");
+					$(".personal-add").before("<div class='skill-box'><p class='name'><span class='remove-skl no-print'>[X]</span><span contenteditable='true'>HTML CSS</span></p><input class='skill-range' type='range' min='1' max='100' value='25' name=''></div>");
 					Content.sklrem($(".personal .skill-box").last().find(".remove-skl"));
 				}						
 			},
@@ -150,6 +155,13 @@
 					if (ans==true) {
 						$(this).closest(".skill-box").remove();
 					}
+				});
+			},
+			sklupdate : function(){
+				$(".skill-range").on("change", function(){
+					console.log("change");
+					var sv = $(this).val();
+					$(this).attr("value",sv);
 				});
 			},
 			poradd : function(){
@@ -186,7 +198,7 @@
 				   url: '/user_resumes_ajax',
 				   data: {
 				      users_id: '<%=session[:user_id]%>',
-				      template: 'template1',
+				      template: 'template2',
 				      content: resume
 				   },
 				    beforeSend: function() {
@@ -243,4 +255,6 @@
 	Content.sklrem($(".remove-skl"));
 	Content.porrem($(".remove-por"));
 	Content.skillfill();			
+	Content.sklupdate();			
+	Content.sklset();			
 </script>

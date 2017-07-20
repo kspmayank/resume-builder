@@ -9,12 +9,12 @@ body{
 }
 
 .left-side{
-	background: #36353a;
+	background: #5ea3da;
 	display: inline;
 	width: 20%;
 	position: absolute;
 	padding: 30px;
-	color: #dedde2;
+	color: #fff;
 	min-height: 1080px;
 	max-height: 1080px;
 	overflow: hidden;
@@ -23,7 +23,7 @@ body{
 }
 
 .right{
-	background: #e6e4e7;
+	background: #eee;
 	display: inline;
 	position: absolute;
 	width: 70%;
@@ -38,27 +38,32 @@ body{
 
 #profile-pic{
 	text-align: center;
-	height: 150px;
+	width: 100%;
 }
 
 #profile-pic img{
-	width: 130px;
-	height: 130px;
+	width: calc(100%);
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 210px;
 }
 
 .img-overlay{
-	background: rgba(0, 0, 0, 0.4);;
-	width: 130px;
-	height: 130px;
-	margin: auto;
+	background: rgba(0, 0, 0, 0.2);;
+	width: calc(100% + 60px);
+	height: 210px;
+	/*margin: auto;*/
 	position: relative;
-	top: -134px;
-	border-radius: 100%;
-	opacity: 0;
+	top: -30px;
+	left: -30px;
+
+	/*border-radius: 100%;*/
+	/*opacity: 0;*/
 }
 
 #profile-pic:hover .img-overlay{
-	opacity: 1;
+	/*opacity: 1;*/
 }
 
 .img-overlay i{
@@ -73,18 +78,28 @@ body{
 
 .img-overlay i:first-child{
 	position: absolute;
-	top: 60px;
-	left: 40px;
+	top: 10px;
+	right: 50px;
 	font-size: 24px;
 	cursor: pointer; 
 }
 
 .img-overlay i:last-child{
 	position: absolute;
-	top: 60px;
-	right: 40px;
+	top: 10px;
+	right: 20px;
 	font-size: 24px;
 	cursor: pointer;
+}
+
+.sec{
+	position: relative;
+	top: -80px;
+}
+
+.left-hr{
+	position: relative;
+	top: -80px;	
 }
 
 .sec h4{
@@ -109,23 +124,23 @@ body{
 
 
 
-/*Right Side Content*/
 
 .body-container{
 	width: 95%;
 	margin: auto;
 }
 
-.intro div{
-	display: inline-block;
-	/*width: 49%;*/
+.intro{
+	position: relative;
+    top: -80px;
 }
 
-.name-sec{width: 55%;}
+.name-sec{//width: 55%;}
 
 .name-sec h1{
-	color: #646368;
-	margin-bottom: 0;
+	color: #fff;
+	margin: 0;
+	font-size: 20px;
 }
 
 .name-sec p{
@@ -134,8 +149,8 @@ body{
 }
 
 .contact-sec{
-	text-align: right;
-	width: 44%;	
+	/*text-align: right;
+	width: 44%;	*/
 }
 
 .contact-sec ul{
@@ -145,8 +160,8 @@ body{
     margin-right: 0;
     padding: 0;
     margin-top: 0;
-    position: absolute;
-    top: 30px;
+    /*position: absolute;
+    top: 30px;*/
 }
 
 .contact-sec ul li{
@@ -166,6 +181,8 @@ body{
 	top: -12px;
 	right: -125px;
 }
+
+/*Right Side Content*/
 
 /*Work Experience*/
 
@@ -200,6 +217,15 @@ body{
 	color: #0f630f;
 	cursor: pointer;
 }
+
+
+.education, .workx, .skills, .pors{
+	padding: 10px;
+	background: #fff;
+	box-shadow: 2px 2px 4px #ccc;
+	margin-top: 10px;
+}
+
 
 /*Education*/
 
@@ -293,6 +319,99 @@ body{
 	background: #3c3c3e;
 }
 
+/*Skill Slider CSS*/
+
+input[type=range] {
+  height: 10px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 70%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #2497E3;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background: #2497E3;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #2497E3;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #2497E3;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2497E3;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #2497E3;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #2497E3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #A1D0FF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #2497E3;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #2497E3;
+}
+
+
 .remove-skl{
 	color: #943f43;
 	cursor: pointer;
@@ -379,7 +498,7 @@ body{
 }
 
 .side-panel ul{
-	font-size: 11px;
+	font-size: 12px;
 	padding-left: 15px;
 	color: #555;
 	text-align: justify;

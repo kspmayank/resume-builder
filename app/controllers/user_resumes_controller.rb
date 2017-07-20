@@ -5,14 +5,14 @@ class UserResumesController < ApplicationController
   # GET /user_resumes
   # GET /user_resumes.json
   def index
-    # @user_resumes = UserResume.all
-    redirect_to '/'
+    @user_resumes = UserResume.where(user_id: 2).all
+    # redirect_to '/'
   end
 
   # GET /user_resumes/1
   # GET /user_resumes/1.json
   def show
-    redirect_to '/'
+    # redirect_to '/'
   end
 
   # GET /user_resumes/new
@@ -22,7 +22,7 @@ class UserResumesController < ApplicationController
 
   # GET /user_resumes/1/edit
   def edit
-    redirect_to '/'
+    # redirect_to '/'
   end
 
   def ajaxhandle

@@ -9,12 +9,12 @@ body{
 }
 
 .left-side{
-	background: #36353a;
+	background: #fff;
 	display: inline;
 	width: 20%;
 	position: absolute;
 	padding: 30px;
-	color: #dedde2;
+	color: #666;
 	min-height: 1080px;
 	max-height: 1080px;
 	overflow: hidden;
@@ -23,7 +23,7 @@ body{
 }
 
 .right{
-	background: #e6e4e7;
+	background: #fff;
 	display: inline;
 	position: absolute;
 	width: 70%;
@@ -31,6 +31,7 @@ body{
 	min-height: 1140px;
 	max-height: 1140px;
 	overflow: hidden;
+	color: #000;
 	/*min-width: 660px;*/
 }
 
@@ -363,7 +364,6 @@ body{
 /*Side Panel*/
 
 .side-panel{
-	zoom: 0.975;
 	position: fixed;
 	top: 10px;
 	right: 10px;
@@ -379,7 +379,7 @@ body{
 }
 
 .side-panel ul{
-	font-size: 11px;
+	font-size: 12px;
 	padding-left: 15px;
 	color: #555;
 	text-align: justify;

@@ -10,9 +10,6 @@
 	<h1 style="margin-top: 20px;">Templates</h1><br/>
 	<p class="first-line">More Templates Coming Soon!</p>
 
-	<div class="col-xs-3">
-		<!--Card-->
-
 	<style type="text/css">
 		.card{
 			border: 1px solid #ccc;
@@ -22,6 +19,8 @@
 		}
 	</style>	
 
+	<div class="col-xs-3">
+		<!--Card-->
 		<div class="card" style="">
 
 		    <!--Card image-->
@@ -37,6 +36,65 @@
 		<% if session[:user_id] %>
 		        <a href="/template1" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 		        <a href="/template1.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
+		<% else %>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
+		<% end %>	
+
+		    </div>
+		    <!--/.Card content-->
+
+		</div>
+		<!--/.Card-->
+	</div>
+
+
+	<div class="col-xs-3">
+		<!--Card-->
+		<div class="card" style="">
+
+		    <!--Card image-->
+		    <img class="img-fluid" src="/template2.png" alt="Card image cap" width="150">
+		    <!--/.Card image-->
+
+		    <!--Card content-->
+		    <div class="card-block">
+		        <!--Title-->
+		        <h4 class="card-title">Template 2</h4>
+		        <!--Text-->
+		        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+		<% if session[:user_id] %>
+		        <a href="/template2" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/template2.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
+		<% else %>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
+		<% end %>	
+
+		    </div>
+		    <!--/.Card content-->
+
+		</div>
+		<!--/.Card-->
+	</div>
+
+	<div class="col-xs-3">
+		<!--Card-->
+		<div class="card" style="">
+
+		    <!--Card image-->
+		    <img class="img-fluid" src="/template3.png" alt="Card image cap" width="150">
+		    <!--/.Card image-->
+
+		    <!--Card content-->
+		    <div class="card-block">
+		        <!--Title-->
+		        <h4 class="card-title">Template 3</h4>
+		        <!--Text-->
+		        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+		<% if session[:user_id] %>
+		        <a href="/template3" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/template3.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
 		<% else %>
 		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>

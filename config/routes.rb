@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/signup' => "users#new"
   get '/templates' => "welcome#templates"
   get '/template1' => "welcome#template1"
+  get '/template2' => "welcome#template2"
+  get '/template3' => "welcome#template3"
   post '/user_resumes_ajax' => "user_resumes#ajaxhandle"
   get '/resettemplate' => "user_resumes#resettemplate"
 
