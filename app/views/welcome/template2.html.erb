@@ -116,11 +116,14 @@
 			ppshow : function(){
 				$("#profile-pic").show();
 				$(".add-pp").hide();
+				$(".sec").css("top","-80px");
+				$(".intro").css("top","-80px");
 			},
 			pphide : function(){
 				$("#profile-pic").hide();
 				$(".add-pp").show();
-
+				$(".sec").css("top","0px");
+				$(".intro").css("top","0px");
 			},
 			wxadd : function(){
 				$('.wx-content').append("<div class='wx'><h5><span class='remove-wx no-print'>[X]</span><span contenteditable='true'>Organisation Name | Your Position</span><span class='duration' contenteditable='true'>Duration</span></h5><p  contenteditable='true'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>");
@@ -249,7 +252,7 @@
 			} 
 		}
 	})();
-	Content.autosave();
+	// Content.autosave();
 	Content.selectimg();
 	Content.wxrem($(".remove-wx"));
 	Content.sklrem($(".remove-skl"));
