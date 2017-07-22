@@ -1,11 +1,4 @@
-<% if session[:user_id] %>
-<% else %>
-	<style type="text/css">
-	  .btn-logout{
-	    display: none;
-	  }
-	</style>
-<% end %>
+
 <div class="container" style="text-align:center;">
 	<h1 style="margin-top: 20px;">Templates</h1><br/>
 	<p class="first-line">More Templates Coming Soon!</p>
@@ -32,14 +25,14 @@
 		        <!--Title-->
 		        <h4 class="card-title">Template 1</h4>
 		        <!--Text-->
-		        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-		<% if session[:user_id] %>
+		        <p class="card-text">A professional template design with a dark background in a black and white theme.</p>
+		<%# if session[:user_id] %>
 		        <a href="/template1" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 		        <a href="/template1.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% else %>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% end %>	
+		<%# else %>
+		        <!-- <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a> -->
+		<%# end %>	
 
 		    </div>
 		    <!--/.Card content-->
@@ -62,14 +55,14 @@
 		        <!--Title-->
 		        <h4 class="card-title">Template 2</h4>
 		        <!--Text-->
-		        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-		<% if session[:user_id] %>
+		        <p class="card-text">A beautiful template in a blue theme to build a colourful and professional resume.</p>
+		<%# if session[:user_id] %>
 		        <a href="/template2" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 		        <a href="/template2.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% else %>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% end %>	
+		<%# else %>
+		        <!-- <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a> -->
+		<%# end %>	
 
 		    </div>
 		    <!--/.Card content-->
@@ -91,14 +84,14 @@
 		        <!--Title-->
 		        <h4 class="card-title">Template 3</h4>
 		        <!--Text-->
-		        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-		<% if session[:user_id] %>
+		        <p class="card-text">A black and white theme with a plain background with minimalistic and elegant design yet looks professional.</p>
+		<%# if session[:user_id] %>
 		        <a href="/template3" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
 		        <a href="/template3.pdf" target="_blank" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% else %>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a>
-		<% end %>	
+		<%# else %>
+		        <!-- <a href="/login" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+		        <a href="/login" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Sample</a> -->
+		<%# end %>	
 
 		    </div>
 		    <!--/.Card content-->

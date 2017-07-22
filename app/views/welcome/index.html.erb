@@ -1,11 +1,3 @@
-<% if session[:user_id] %>
-<% else %>
-	<style type="text/css">
-	  .btn-logout{
-	    display: none;
-	  }
-	</style>
-<% end %>
 
 <div class="container" style="text-align:center;">
 	<h1>Resume<span class="heading-logo"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>Builder</h1><br/>
@@ -340,9 +332,53 @@
 		<% if session[:user_id] %>
 			<a class="btn" href="/templates">Explore Templates</a>
 		<% else %>
-			<a class="btn" href="/login">Login</a>
-			<a class="btn" href="/signup">Signup</a>		
+			<!-- <a class="btn" href="/login">Login</a>
+			<a class="btn" href="/signup">Signup</a> -->		
 			<a class="btn" href="/templates">Explore Templates</a>
 		<% end %>	
 	</div>
+</div>
+
+<div class="works-sec">
+	<div class="container">
+		<h2>How it works ?</h2>
+		<div class="row">
+			<div class="col-md-4">
+				<i class="fa fa-file-text"></i>
+				<p style="text-align:left;">Choose from a variety of resume templates that we offer you. We keep on adding templates at regular intervals so that you get a better design each time. You can view a sample of how your resume will look by downloading the sample copy or you can directly start customising it by clicking on the edit button.</p>
+			</div>
+			<div class="col-md-4">
+				<i class="fa fa-pencil-square"></i>
+				<p style="text-align:center;">Once you choose to customise a template you will get an editable copy of the same. You can click on any element or text in the template to replace it with your content. If you are logged in your content will be automatically saved in the cloud storage and you can retrieve it from anywhere and anytime.</p>				
+			</div>
+			<div class="col-md-4">
+				<i class="fa fa-download"></i>
+				<p style="text-align:right;">Once you are done editing the template, you can simply download it by following the instructions as given in the sidebox. Note that these instructions are chrome friendly and so we suggest you to use a chrome browser on a desktop or laptop.</p>				
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div class="faq-sec">
+	<div class="container">
+		<h2>Frequently Asked Questions ?</h2>
+		<div class="row">
+			<div class="qa col-md-5">
+				<p class="question" style="text-align:left;"">Why should I Signup?</p>
+				<p class="answer" style="text-align:left;">By signing up, you can save your customised template online and can retrive it at a later stage when you need to make some modifications. Also we will send you notifications about new templates when available.</p>
+			</div><div class="col-md-2"></div>
+			<div class="qa col-md-5">
+				<p class="question" style="text-align:left;"">What should be the length of content?</p>
+				<p class="answer" style="text-align:left;">The length of the content can be as per your requirements but as most of our templates are of one page format so try to stick to the space given to you in the template.</p>
+			</div>
+			<div class="qa col-md-5">
+				<p class="question" style="text-align:left;"">How can I download my resume in different formats?</p>
+				<p class="answer" style="text-align:left;">Currently we are only able to provide to download in pdf format. You can also print the resume directly. If you need to make any changes, you can always login to retrive the saved resume and extract the data.</p>
+			</div><div class="col-md-2"></div>
+			<div class="qa col-md-5">
+				<p class="question" style="text-align:left;"">How do I get notified of new templates?</p>
+				<p class="answer" style="text-align:left;">If you have already signed up, we will keep sending you notifications when new templates are available so that you never miss on a better design.</p>
+			</div>
+		</div>
+	</div>	
 </div>

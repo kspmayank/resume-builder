@@ -20,7 +20,11 @@
 </div>
 
 <div class="side-panel no-print">
-<p class="btn-logout" style="font-size:12px;">Hello! <a href="/logout">Logout</a>? Go <a href="/">Home</a></p>
+	<% if session[:user_id] %>
+		<p class="btn-logout" style="font-size:12px;">Hello! <a href="/logout">Logout</a>? Go <a href="/">Home</a></p>
+	<% else %>
+		<p class="btn-logout" style="font-size:12px;">Hello! <a href="/login">Login</a>? Go <a href="/">Home</a></p>
+	<% end %>	
 	<p>Welcome to online Resume Builder</p>
 	<ul>
 		<li>For best experience, use Desktop Chrome</li>
@@ -49,8 +53,13 @@
 		<li>In the print window dialog box, change the destination to "Save as PDF"</li>		
 	</ul>	
 	<!-- <p>To save online</p> -->
+	<% if session[:user_id] %>
 		<a href="javascript:void(0)" class="save" onclick="Content.savedata()">Save</a>		
 		<a href="javascript:void(0)" class="save" onclick="Content.defaultdata()">Reset Template</a>		
+	<% else %>
+		<a href="/login" class="save">Login</a>		
+		<a href="/signup" class="save">Signup</a>		
+	<% end %>	
 	<!-- <div><a href=""></a></div> -->
 </div>
 
@@ -216,6 +225,9 @@
 			    	Content.savedata();
 			  	}, 200000);
 			},
+			showLogin : function(){
+				$("#counter-c").html("<a href='/login'>Login</a> to save data.");
+			},
 			defaultdata : function(){
 				var ans = confirm("Are you sure you want to RESET this template? All Data will be lost.");
 				if (ans==true) {
@@ -237,7 +249,12 @@
 			} 
 		}
 	})();
-	Content.autosave();
+	<% if session[:user_id] %>
+		Content.autosave();
+	<% else %>
+		Content.showLogin();
+	<% end %>
+
 	Content.selectimg();
 	Content.wxrem($(".remove-wx"));
 	Content.sklrem($(".remove-skl"));

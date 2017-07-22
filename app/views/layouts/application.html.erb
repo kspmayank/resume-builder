@@ -37,7 +37,11 @@
 	
 </nav>
 
-<p class="btn-logout" style="">Hello User! <a href="/logout">Logout</a>?, Go <a href="/">Home</a></p>
+<% if session[:user_id] %>
+  <p class="btn-logout">Hello User! <a href="/logout">Logout</a>?, Go <a href="/">Home</a></p>
+<% else %>
+  <p class="btn-logout">Hello User! <a href="/login">Login</a>/<a href="/signup">Signup</a> or Go <a href="/">Home</a></p>
+<% end %>
 
 <style type="text/css">
   .btn-logout{

@@ -65,3 +65,47 @@ h1{
 	border-color: #dd2c00;
 }
 
+.works-sec{
+	//height: 250px;
+	background: #dd2c00;
+	color: #fff;
+	text-align: center;
+	padding: 50px 0 50px 0;
+}
+
+.works-sec h2{
+	margin-bottom: 50px;
+}
+
+.works-sec .fa{
+	font-size: 48px;
+	margin-bottom: 20px;
+}
+
+.works-sec p{
+	//font-size: 16px;
+	line-height: 24px;
+}
+
+.faq-sec{
+	text-align: center;
+	padding: 50px 0;
+}
+
+.faq-sec h2{
+	margin-bottom: 50px;
+}
+
+.faq-sec .qa{
+	margin: 20px 0;
+}
+
+.faq-sec .question{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.faq-sec .answer{
+	font-size: 12px;
+	color: #555;
+}
